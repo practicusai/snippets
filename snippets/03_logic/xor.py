@@ -9,9 +9,9 @@ def xor(df, condition_col: list[str], result: str):
 
     import numpy as np
 
-    combined_result = np.logical_xor(condition_col[0], condition_col[1])
+    combined_result = np.logical_xor(df[condition_col[0]], df[condition_col[1]])
     for i in range(2, len(condition_col)):
-        combined_result = np.logical_or(result, condition_col[i])
+        combined_result = np.logical_or(combined_result, df[condition_col[i]])
 
     df[result] = combined_result
 

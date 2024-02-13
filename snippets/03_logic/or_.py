@@ -6,9 +6,9 @@ def or_(df, condition_col: list[str], result: str):
     """
     import numpy as np
 
-    combined_result = condition_col[0]
+    combined_result = df[condition_col[0]]
     for i in range(1, len(condition_col)):
-        combined_result = np.logical_or(result, condition_col[i])
+        combined_result = np.logical_or(combined_result, df[condition_col[i]])
 
     df[result] = combined_result
 

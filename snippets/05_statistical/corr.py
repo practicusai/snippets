@@ -10,6 +10,7 @@ class CorrMethods(str, Enum):
 def corr(df, some_col: list[str], corr_method: CorrMethods = CorrMethods.pearson):
     """
     Calculates the correlation of selected columns for each row separately.
+    Note: If you want to calculate correlations other than Pearson, you should download the scipy library first.
     :param some_col: Columns with numeric values
     :param corr_method: Correlation method to use
     """

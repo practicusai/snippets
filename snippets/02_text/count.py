@@ -1,4 +1,4 @@
-def apply_count(df, some_col: str, pattern: str, flags: int = 0, result: str = ""):
+def count(df, some_col: str, pattern: str, flags: int = 0, result: str = ""):
     """
     Count occurrences of pattern in each string
     :param some_col: Column to use

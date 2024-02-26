@@ -1,4 +1,4 @@
-def length(df, some_col: str, result: str):
+def len(df, some_col: str, result: str):
     """
     Returns the number of characters in a text
     :param some_col: Column to calculate

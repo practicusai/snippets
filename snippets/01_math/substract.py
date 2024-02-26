@@ -1,4 +1,4 @@
-def subtract(df, first_col: str, second_col: str | None, some_number: float | None, result: str):
+def substract(df, first_col: str, second_col: str | None, some_number: float | None, result: str):
     """
     Subtracts a column from another column, or from a number.
     :param first_col: First column to subtract from

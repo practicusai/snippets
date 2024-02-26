@@ -1,4 +1,4 @@
-def prod(df, some_col: str, result: str):
+def product(df, some_col: str, result: str):
     """
     Product. Multiplies values of a column
     :param some_col: The name of the column to multiply values from.

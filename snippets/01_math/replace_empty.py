@@ -1,4 +1,4 @@
-def replace_empty_with_number(df, some_col: str, replacement_value: object, result: str):
+def replace_empty(df, some_col: str, replacement_value: object, result: str):
     """
     Replaces empty (None) values in a column with a specified number.
     :param some_col: The name of the column to replace empty values in.

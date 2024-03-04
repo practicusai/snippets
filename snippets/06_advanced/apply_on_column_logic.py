@@ -10,7 +10,6 @@ def apply_on_column_logic(df, some_col: str, if_logic_eval: str, if_true_eval: s
     :param result: Resulting column name
     """
     expression = f"df['{some_col}'].apply(lambda x: {if_true_eval} if {if_logic_eval} else {if_false_eval})"
-    safe_locals = {'x': None}
-    df[result] = eval(expression, {'df': df, '__builtins__': {}}, safe_locals)
+    df[result] = eval(expression, {'df': df, '__builtins__': {}})
 
     return df

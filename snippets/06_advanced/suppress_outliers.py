@@ -1,10 +1,10 @@
 def suppress_outliers(
-        df, outlier_col: list[str] | None, q1_percentile: float = 0.25, q3_percentile: float = 0.75,
+        df, outlier_float_col_list: list[str] | None, q1_percentile: float = 0.25, q3_percentile: float = 0.75,
         result_col_suffix: str | None = "no_outlier", result_col_prefix: str | None = None):
     """
     Suppresses outliers in specified numeric columns of the dataframe based on custom percentile values for Q1 and Q3.
     Adds new columns with the selected suffix or prefix. If no suffix or prefix is provided, overwrites the existing column.
-    :param outlier_col: List of numeric columns to check for outliers. If left empty, applies to all numeric columns.
+    :param outlier_float_col_list: List of numeric columns to check for outliers. If left empty, applies to all numeric columns.
     :param q1_percentile: Custom percentile for Q1 (e.g., 0.25 for 25th percentile).
     :param q3_percentile: Custom percentile for Q3 (e.g., 0.75 for 75th percentile).
     :param result_col_suffix: Suffix for the new column where the suppressed data will be stored.
@@ -13,14 +13,14 @@ def suppress_outliers(
     import numpy as np
 
     # If no specific columns provided, use all numeric columns
-    if not outlier_col:
-        outlier_col = df.select_dtypes(include=[np.number]).columns.tolist()
+    if not outlier_float_col_list:
+        outlier_float_col_list = df.select_dtypes(include=[np.number]).columns.tolist()
 
-    if len(outlier_col) == 0:
-        raise ValueError("No numeric column provided or located. ")
+    if len(outlier_float_col_list) == 0:
+        raise ValueError("No numeric column provided or located.")
 
     # Process each specified column
-    for col in outlier_col:
+    for col in outlier_float_col_list:
         q1 = df[col].quantile(q1_percentile)
         q3 = df[col].quantile(q3_percentile)
         iqr = q3 - q1

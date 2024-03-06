@@ -1,9 +1,9 @@
-def length(df, some_col: str, result: str):
+def len(df, some_text_col: str, result: str):
     """
-    Returns the number of characters in a text
-    :param some_col: Column to calculate
-    :param result: Resulting column name
+    Calculates the length of each text string in a column.
+    :param some_text_col: Name of the column containing the text strings.
+    :param result: Name of the resulting column containing the length of each string.
     """
-    df[result] = df[some_col].str.len()
+    df[result] = df[some_text_col].str.len()
 
     return df

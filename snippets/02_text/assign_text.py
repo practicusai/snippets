@@ -1,9 +1,9 @@
-def assign_text(df, some_text: str, result: str):
+def assign_text(df, some_text_col: str, result: str):
     """
-    Assigns a static text (string)
-    :param some_text: A static string to assign
-    :param result: Resulting column name
+    This function assigns the specified static text to a new column in the DataFrame.
+    :param some_text_col: A static string to assign to the new column.
+    :param result: Resulting column name for the new column with the assigned text.
     """
-    df[result] = some_text
+    df[result] = some_text_col
 
     return df

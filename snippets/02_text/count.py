@@ -1,11 +1,12 @@
-def apply_count(df, some_col: str, pattern: str, flags: int = 0, result: str = ""):
+def count(df, some_text_col: str, pattern: str, flags: int = 0, result: str = ""):
     """
-    Count occurrences of pattern in each string
-    :param some_col: Column to use
-    :param pattern: A regular expression pattern
-    :param flags: Flags for the regular expression module.
-    :param result: Resulting column name
+    This function counts the occurrences of the specified regular expression pattern in each string of the specified column in the DataFrame.   
+    :param some_text_col: Name of the column to count pattern occurrences in.
+    :param pattern: Regular expression pattern to count occurrences of.
+    :param flags: Flags for the regular expression module. Default is 0.
+    :param result: Name of the resulting column containing the count of occurrences. 
+                   If not provided, a new column will be created with a default name.
     """
 
-    df[result] = df[some_col].str.count(pattern, flags=flags)
+    df[result] = df[some_text_col].str.count(pattern, flags=flags)
     return df

@@ -1,10 +1,10 @@
-def left(df, some_col: str, number_of_characters: int, result: str):
+def left(df, some_text_col: str, number_of_characters: int, result: str):
     """
     Returns the first characters in a text string, based on the number of characters you specify
-    :param some_col: Column to calculate
-    :param number_of_characters: Specifies the number of characters you want to extract
-    :param result: Resulting column name
+    :param some_text_col: Name of the column containing the text strings.
+    :param number_of_characters: Number of characters to extract from the beginning of each string.
+    :param result: Name of the resulting column containing the extracted characters.
     """
-    df[result] = df[some_col].str[:number_of_characters]
+    df[result] = df[some_text_col].str[:number_of_characters]
 
     return df

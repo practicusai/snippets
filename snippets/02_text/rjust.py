@@ -1,11 +1,11 @@
-def rjust(df, some_col: str, width: int, fill_char: str = " ", result: str = ""):
+def rjust(df, some_text_col: str, width: int, fill_char: str = " ", result: str = ""):
     """
     Pads the left side of string
-    :param some_col: Column to calculate
-    :param width: Minimum width of resulting string; additional characters will be filled with fill_char
-    :param fill_char: Additional character for filling, default is whitespace " "
-    :param result: Resulting column name
+    :param some_text_col: Name of the column containing text strings to be padded.
+    :param width: Minimum width of the resulting string after padding.
+    :param fill_char: Character used for filling, default is whitespace (" ").
+    :param result: Name of the resulting column containing the padded strings.
     """
-    df[result] = df[some_col].str.rjust(width, fill_char)
+    df[result] = df[some_text_col].str.rjust(width, fill_char)
 
     return df

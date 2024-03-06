@@ -1,10 +1,11 @@
-def lstrip(df, some_col: str, text: str | None = None, result: str = ""):
+def lstrip(df, some_text_col: str, text: str | None = None, result: str = ""):
     """
-    Removes leading characters such as whitespace or new lines from left side.
-    :param some_col: Column to use
-    :param text: Text item to strip from left. Default is None
-    :param result: Resulting column name
+    This function removes leading characters, which may include whitespace or specific text, from the left side of each string in the specified column of the DataFrame.    
+    :param some_text_col: Name of the column containing strings to be stripped.
+    :param text: Optional. The specific text item to strip from the left side of each string.
+                 If not provided, leading whitespace will be stripped. Default is None.
+    :param result: Name of the resulting column containing the stripped strings.
     """
-    df[result] = df[some_col].str.lstrip(text)
+    df[result] = df[some_text_col].str.lstrip(text)
 
     return df

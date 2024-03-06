@@ -7,7 +7,6 @@ def apply_on_column(df, some_col: str, eval_statement: str, result: str):
     :param result: Resulting column name
     """
     expression = f"df['{some_col}'].apply(lambda x: {eval_statement})"
-    safe_locals = {'x': None}
-    df[result] = eval(expression, {'df': df, '__builtins__': {}}, safe_locals)
+    df[result] = eval(expression, {'df': df, '__builtins__': {}})
 
     return df

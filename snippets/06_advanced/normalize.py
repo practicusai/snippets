@@ -10,7 +10,7 @@ def normalize(df, some_numeric_col_list: list[str] | None, normalization_option:
     """
     Normalizes certain columns in the DataFrame with the selected normalization method.
     :param some_numeric_col: Names of the numeric columns to normalize
-    :param normalization_option: Normalization method to use
+    :param normalization_option: Specifies the method for normalization: Z-Score (standardizes data), Min-Max (scales data to a fixed range, typically [0, 1]), or Robust (reduces the impact of outliers).
     :param result_cols: Column names to write normalization results (Optional)
     :return: DataFrame with normalization applied
     """
@@ -32,8 +32,9 @@ def normalize(df, some_numeric_col_list: list[str] | None, normalization_option:
     else:
         raise ValueError("Unsupported normalization option selected.")
     
-    # Apply the normalization process and write the results in the corresponding columns
-    for col, result_col in zip(some_numeric_col_list, result):
-        df[result] = scaler.fit_transform(df[[col]])
+    # Normalize specified columns and assign results either to new columns or overwrite them
+    for i, col in enumerate(some_numeric_col_list):
+        normalized_col_name = result[i] if result is not None and len(result) == len(some_numeric_col_list) else f"{col}_normalized"
+        df[normalized_col_name] = scaler.fit_transform(df[[col]])
 
     return df

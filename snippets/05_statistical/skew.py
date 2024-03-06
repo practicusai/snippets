@@ -1,10 +1,10 @@
-def skew(df, some_numeric_col: list[str], result: str):
+def skew(df, numeric_col_list: list[str], result: str):
     """
     Calculates the skewness of selected columns for each row separately.
     This is a row based operation. To calculate for all columns, please use "Group by" under Analyze menu
-    :param some_numeric_col: Columns with numeric values
+    :param numeric_col_list: Columns with numeric values
     :param result: Resulting column name
     """
-    df[result] = df[some_numeric_col].skew(axis=1)
+    df[result] = df[numeric_col_list].skew(axis=1)
 
     return df

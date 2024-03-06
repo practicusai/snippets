@@ -1,4 +1,4 @@
-def len(df, text_col: str, result: str):
+def length(df, text_col: str, result: str):
     """
     Calculates the length of each text string in a column.
     :param text_col: Name of the column containing the text strings.

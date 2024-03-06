@@ -1,4 +1,4 @@
-def log2(df, some_numeric_col: str, result: str):
+def log2(df, numeric_col: str, result: str):
     """
     Calculates the base-2 logarithm of values in a column.
     :param some_numeric_col: Name of the column to apply the base-2 logarithm to.
@@ -9,8 +9,8 @@ def log2(df, some_numeric_col: str, result: str):
     import numpy as np
 
     # Check if all values in some_numeric_col are greater than 0
-    if (df[some_numeric_col] <= 0).any():
-        raise ValueError("Values in column '{}' must be greater than 0 for logarithm calculation.".format(some_numeric_col))
+    if (df[numeric_col] <= 0).any():
+        raise ValueError("Values in column '{}' must be greater than 0 for logarithm calculation.".format(numeric_col))
 
-    df[result] = np.log2(df[some_numeric_col])
+    df[result] = np.log2(df[numeric_col])
     return df

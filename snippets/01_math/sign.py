@@ -1,4 +1,4 @@
-def sign(df, some_numeric_col: str, result: str):
+def sign(df, numeric_col: str, result: str):
     """
     Determines the sign of values in a column.
     For each value in the specified column:
@@ -6,13 +6,13 @@ def sign(df, some_numeric_col: str, result: str):
         - Returns 0 if the value is zero.
         - Returns -1 if the value is negative.
     
-    :param some_numeric_col: Name of the column to calculate signs for.
+    :param numeric_col: Name of the column to calculate signs for.
     :param result: Name of the resulting column where the signs will be stored.
     """
 
     import numpy as np
 
-    df[result] = np.sign(df[some_numeric_col])
+    df[result] = np.sign(df[numeric_col])
 
     return df
 

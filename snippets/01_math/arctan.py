@@ -1,11 +1,10 @@
-def arctan(df, some_col: str, result: str):
+def arctan(df, some_numeric_col: str, result: str):
     """
-    Returns the arctangent, or inverse tangent, of a number. The arctangent is the angle whose tangent is number.
-    The returned angle is given in radians in the range -pi/2 to pi/2.
-    :param some_col: Colum to calculate
-    :param result: Resulting column name
+    Calculates the arctangent of the values in a specified columns, and adds the result as a new column to the DataFrame.    The returned angle is given in radians in the range -pi/2 to pi/2.
+    :param some_col: Name of the column whose arctangent values are to be calculated.
+    :param result: Name of the resulting column where the arctangent values will be stored.
     """
     import numpy as np
-    df[result] = np.arctan(df[some_col])
+    df[result] = np.arctan(df[some_numeric_col])
 
     return df

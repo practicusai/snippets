@@ -1,11 +1,13 @@
-def acot(df, some_col: str, result: str):
+def acot(df, some_numeric_col: str, result: str):
     """
-    Returns the principal value of the arccotangent, or inverse cotangent, of a number.
-    :param some_col: Column to calculate
-    :param result: Resulting column name
+    Calculates the principal value of the arccotangent of the values in a specified column 
+    and adds the result as a new column to the DataFrame.
+
+    :param some_numeric_col: Name of the column whose arccotangent values are to be calculated.
+    :param result: Name of the resulting column where the arccotangent values will be stored.
     """
     import numpy as np
 
-    df[result] = np.pi/2 - np.arctan(df[some_col])
+    df[result] = np.pi/2 - np.arctan(df[some_numeric_col])
 
     return df

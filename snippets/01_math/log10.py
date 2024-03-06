@@ -1,11 +1,16 @@
-def log10(df, some_col: str, result: str = "log10_values"):
+def log10(df, some_numeric_col: str, result: str):
     """
     Calculates the base-10 logarithm of values in a column.
-    :param some_col: The name of the column to apply the logarithm to.
-    :param result: Resulting column name
+    :param some_numeric_col: Name of the column to apply the base-10 logarithm to.
+                            Values in this column must be greater than 0.
+    :param result: Name of the resulting column where the base-10 logarithm values will be stored.
     """
 
     import numpy as np
 
-    df[result] = np.log10(df[some_col])
+    # Check if all values in some_numeric_col are greater than 0
+    if (df[some_numeric_col] <= 0).any():
+        raise ValueError("Values in column '{}' must be greater than 0 for logarithm calculation.".format(some_numeric_col))
+
+    df[result] = np.log10(df[some_numeric_col])
     return df

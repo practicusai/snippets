@@ -1,11 +1,11 @@
-def sinh(df, some_col: str, result: str):
+def sinh(df, some_numeric_col: str, result: str):
     """
     Calculates the hyperbolic sine of values in a column.
-    :param some_col: The name of the column containing the values to calculate the hyperbolic sine of.
-    :param result: Resulting column name
+    :param some_numeric_col: Name of the column containing the values to calculate the hyperbolic sine of.
+    :param result: Name of the column where the resulting hyperbolic sine values will be stored.
     """
     import numpy as np
 
-    df[result] = np.sinh(df[some_col])
+    df[result] = np.sinh(df[some_numeric_col])
 
     return df

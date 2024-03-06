@@ -1,11 +1,11 @@
-def tanh(df, some_col: str, result: str):
+def tanh(df, some_numeric_col: str, result: str):
     """
-    Tanh function is used to compute the hyperbolic tangent of the given angle of a column.
-    :param some_col: Column containing angle values (in radians).
-    :param result: Resulting column name
+    Calculates the hyperbolic tangent of angles in a column, assuming angles are given in radians.
+    :param some_numeric_col: The name of the column containing the angle values in radians. 
+    :param result: The name of the column where the resulting hyperbolic tangent values will be stored.
     """
     import numpy as np
 
-    df[result] = np.tanh(df[some_col])
+    df[result] = np.tanh(df[some_numeric_col])
 
     return df

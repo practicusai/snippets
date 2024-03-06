@@ -1,10 +1,11 @@
-def exp(df, some_col: str, result: str):
+def exp(df, some_numeric_col: str, result: str):
     """
-    Returns e raised to the power of number. The constant e equals 2.71828182845904, the base of the natural logarithm.
-    :param some_col: Column to calculate
-    :param result: Resulting column name
+    Calculates the exponential of the values in a specified column, and adds the result as a new column to the DataFrame.
+    The constant e equals approximately 2.71828182845904, which is the base of the natural logarithm.
+    :param some_numeric_col: Name of the column whose values are used for exponential calculation.
+    :param result: Name of the resulting column where the exponential values will be stored.
     """
     import numpy as np
-    df[result] = np.exp(df[some_col])
+    df[result] = np.exp(df[some_numeric_col])
 
     return df

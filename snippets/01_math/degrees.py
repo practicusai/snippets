@@ -1,10 +1,11 @@
-def degrees(df, some_col: str, result: str):
+def degrees(df, some_numeric_col: str, result: str):
     """
-    Converts radians into degrees.    
-    :param some_col: Column to calculate
-    :param result: Resulting column name
+    Converts the values in a specified column from radians to degrees, and adds the result as a new column to the DataFrame. 
+    Values in the specified column should be in radians.
+    :param some_numeric_col: Name of the column whose values are in radians and to be converted to degrees. Values in this column should be in radians.
+    :param result: Name of the resulting column where the degree values will be stored.
     """
     import numpy as np
-    df[result] = np.degrees(df[some_col])
+    df[result] = np.degrees(df[some_numeric_col])
 
     return df

@@ -1,12 +1,12 @@
-def gcd(df, some_col1: str, some_col2: str, result: str):
+def gcd(df, first_integer_col: str, second_integer_col: str, result: str):
     """
     Calculates the greatest common divisor of values in two columns.
-    :param some_col1: The name of the first column.
-    :param some_col2: The name of the second column.
-    :param result: Resulting column name
+    :param first_integer_col: Name of the first column containing the values. Must be an integer type column.
+    :param second_integer_col: Name of the second column containing the values. Must be an integer type column.
+    :param result: Name of the resulting column where the greatest common divisor values will be stored.
     """
 
     import numpy as np
 
-    df[result] = np.gcd(df[some_col1], df[some_col2])
+    df[result] = np.gcd(df[first_integer_col], df[second_integer_col])
     return df

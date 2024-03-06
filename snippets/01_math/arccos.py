@@ -1,11 +1,12 @@
-def arccos(df, some_col: str, result: str):
+def arccos(df, some_numeric_col: str, result: str):
     """
-    Returns the arccosine, or inverse cosine, of a number. The arccosine is the angle whose cosine is number. The returned angle is given in radians in the range 0 (zero) to pi.
-    :param some_col: Required. The cosine of the angle you want and must be from -1 to 1.
-    :param result: Resulting column name
+    Trigonometric inverse cosine, element-wise. The inverse of cos so that, if y = cos(x), then x = arccos(y).
+
+    :param some_numeric_col: Required. Name of the column whose cosine values are to be calculated. The cosine values must be in the range -1 to 1.
+    :param result: Name of the resulting column where the arccosine values will be stored.
     """
     import numpy as np
 
-    df[result] = np.arccos(df[some_col])
+    df[result] = np.arccos(df[some_numeric_col])
 
     return df

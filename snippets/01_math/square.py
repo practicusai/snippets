@@ -1,11 +1,13 @@
-def square(df, some_col: str, result: str):
+def square(df, some_numeric_col: str, result: str):
     """
-    Square function is used to compute the element-wise square of a column.
-    :param some_col: Column to calculate the square of
-    :param result: Resulting column name
+    Computes the element-wise square of values in a column.
+    The square function calculates the square of each value in the specified column.
+
+    :param some_numeric_col: The name of the column containing the values to calculate the square of.
+    :param result: The name of the column where the resulting square values will be stored.
     """
     import numpy as np
 
-    df[result] = np.square(df[some_col])
+    df[result] = np.square(df[some_numeric_col])
 
     return df

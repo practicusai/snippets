@@ -1,11 +1,11 @@
-def sqrt(df, some_col: str, result: str):
+def sqrt(df, some_numeric_col: str, result: str):
     """
-    Sqrt function is used to compute the square root of a column.
-    :param some_col: Column to calculate the square root of
-    :param result: Resulting column name
+    Calculates the square root of values in a column.
+    :param some_numeric_col: Name of the column containing the values to calculate the square root of.
+    :param result: Name of the column where the resulting square root values will be stored.
     """
     import numpy as np
 
-    df[result] = np.sqrt(df[some_col])
+    df[result] = np.sqrt(df[some_numeric_col])
 
     return df
